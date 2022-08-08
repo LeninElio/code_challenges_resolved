@@ -20,7 +20,27 @@
 
 palabras = 'Hola, mi nombre es lenin elio, Mi nombre completo es Lenin Elio Moreno Vega (leninelio)'
 
-palabra = ''
+palabras = palabras.replace(',', '')
+# ma_us = palabras.upper()
+mi_us = palabras.lower()
+# print(mi_us)
+lista = mi_us.split(' ')
+# conjunto = palabras.split(' ')
+# print(lista)
+conjunto = set(lista)
+# print(conjunto)
+
+a = len(lista)
+# print(a)
+b = len(conjunto)
+# print(b)
+
+print(f'{a - b} palabras se repiten en la oracion')
+
+# print(ma_us)
+
+# conjunto = palabras.split(' ')
+
 
 # for i in range(0, len(palabras)):
 #     if palabras[i] == "":
@@ -34,26 +54,3 @@ palabra = ''
 #         # palabra += palabras[i]
 #         continue
 # print(palabra)
-
-
-for i in range(0, len(palabras)):
-    if palabras[i] == ",":
-        continue
-    else:
-        palabra += palabras[i]
-
-data = palabra.split(' ')
-zata = data
-
-for i in data:
-    print(zata)
-    zata.remove(i)
-    print(zata)
-    for j in zata:
-        if i == j:
-            print(i)
-        else:
-            print('No se')
-
-print(data)
-print(zata)
