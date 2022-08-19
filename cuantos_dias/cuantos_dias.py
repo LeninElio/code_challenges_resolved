@@ -24,16 +24,40 @@
 
 """
 
-fec_01 = "10/12/2024"
-fec_02 = "12/09/2022"
+fec_01 = "10/12/2021"
+fec_02 = "12/09/2024"
 
 fec_01 = fec_01.split('/')
-print(fec_01)
+fec_02 = fec_02.split('/')
 
-an = int(fec_01[2])
-if an % 400 == 0 or (an % 4 == 0 and an % 100 != 0):
-    print('bisiesto')
-else:
-    print('no bisiesto')
+mes1 = {'01': '31', '02': '28', '03': '31', '04': '30', '05': '31', '06': '30',
+        '07': '31', '08': '31', '09': '30', '10': '31', '11': '30', '12': '31'}
 
-mes = {'01': '31', '02': '28', '03': '31'}
+mes2 = {'01': '31', '02': '28', '03': '31', '04': '30', '05': '31', '06': '30',
+        '07': '31', '08': '31', '09': '30', '10': '31', '11': '30', '12': '31'}
+
+
+def bisiesto(anio):
+    if anio % 400 == 0 or (anio % 4 == 0 and anio % 100 != 0):
+        return 29
+    else:
+        return 28
+
+
+def febrero():
+    feb1 = bisiesto(int(fec_01[2]))
+    feb2 = bisiesto(int(fec_02[2]))
+
+    if feb1 == 29:
+        mes1['02'] = str(feb1)
+
+    if feb2 == 29:
+        mes2['02'] = str(feb2)
+
+
+febrero()
+print(mes1)
+print(mes2)
+
+for i in range(1, int(fec_02[1]) + 1):
+    print(i)
