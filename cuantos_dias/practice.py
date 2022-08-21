@@ -17,6 +17,6 @@
 # lst = [i for i in dna]
 # print(lst)
 
-lsta = ['A', 'T', 'G', 'C']
-for i in lsta:
+lst = ['A', 'T', 'G', 'C']
+for i in lst:
     print(i)

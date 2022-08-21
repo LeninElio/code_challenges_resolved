@@ -23,41 +23,142 @@
  */
 
 """
+from functools import reduce
 
-fec_01 = "10/12/2021"
-fec_02 = "12/09/2024"
+# fec_01 = "18/02/2024"
+# fec_02 = "20/08/2023"
+#
+# fec_01 = fec_01.split('/')
+# fec_02 = fec_02.split('/')
+#
+#
+# def mayor():
+#     if int(fec_01[2]) > int(fec_02[2]):
+#         return fec_01, fec_02
+#     elif int(fec_02[2]) > int(fec_01[2]):
+#         return fec_02, fec_01
+#     else:
+#         if int(fec_01[1]) > int(fec_02[1]):
+#             return fec_01, fec_02
+#         elif int(fec_02[1]) > int(fec_01[1]):
+#             return fec_02, fec_01
+#         else:
+#             if int(fec_01[0]) > int(fec_02[0]):
+#                 return fec_01, fec_02
+#             elif int(fec_02[0]) > int(fec_01[0]):
+#                 return fec_02, fec_01
+#             else:
+#                 return 'Misma', 'fecha'
+#
+#
+# may_fecha, men_fecha = mayor()
+#
+# may_an = {'01': '31', '02': '28', '03': '31', '04': '30', '05': '31', '06': '30',
+#           '07': '31', '08': '31', '09': '30', '10': '31', '11': '30', '12': '31'}
+#
+# men_an = {'01': '31', '02': '28', '03': '31', '04': '30', '05': '31', '06': '30',
+#           '07': '31', '08': '31', '09': '30', '10': '31', '11': '30', '12': '31'}
+#
 
-fec_01 = fec_01.split('/')
-fec_02 = fec_02.split('/')
+# def bisiesto(anio):
+#     if anio % 400 == 0 or (anio % 4 == 0 and anio % 100 != 0):
+#         return True
+#     else:
+#         return False
+#
+#
+# def febrero():
+#     may_feb = bisiesto(int(may_fecha[2]))
+#     men_feb = bisiesto(int(men_fecha[2]))
+#
+#     if may_feb:
+#         may_an['02'] = str(29)
+#
+#     if men_feb == 29:
+#         men_an['02'] = str(28)
+#
+#
+# febrero()
+#
+# # val = reduce(lambda x, y: int(x) + int(y), may_an.values())
+#
+#
+# # for n in range(1, val + 1):
+#
+# #
+# # suma = 0
+# # for cl, vl in may_an.items():
+# #     suma += int(vl)
+# #     for n in range(1, val + 1):
+# #         if n == suma:
+# #             print(cl, n)
+#
+# # def retorna_num(da, mes, an):
+# #     da = int(da)
+# #     suma = 0
+# #     for cl, vl in an.items():
+# #         suma += int(vl)
+# #         for n in range(1, val + 1):
+# #             if n == (suma + da) and cl == mes:
+# #                 return n
+#
+#
+# # print(retorna_num('31', '12', may_an))
+#
+#
+# def retorna_num(da, mes, an):
+#     da = int(da)
+#     suma = 0
+#     for cl, vl in an.items():
+#         suma += int(vl)
+#         if cl == mes:
+#             retorno = suma - (int(vl) - da)
+#             return retorno
+#
+#
+# # print(retorna_num(may_fecha[0], may_fecha[1], may_an))
+# residuo = []
+# dif_an = int(may_fecha[2])
+# while dif_an >= int(men_fecha[2]):
+#     residuo.append(dif_an)
+#     dif_an -= 1
+#
+# # print(residuo)
+# # print(len(residuo))
+# # val = reduce(lambda x, y: int(x) + int(y), an.values())
+# # if len(residuo) == 1:
+# mayor_aio = retorna_num(may_fecha[0], may_fecha[1], may_an)
+# menor_aio = retorna_num(men_fecha[0], men_fecha[1], men_an)
+# resta_dias = mayor_aio - menor_aio
+# print(resta_dias)
+# print(menor_aio)
+# print(mayor_aio)
 
-mes1 = {'01': '31', '02': '28', '03': '31', '04': '30', '05': '31', '06': '30',
-        '07': '31', '08': '31', '09': '30', '10': '31', '11': '30', '12': '31'}
+# else:
+#     for i in residuo:
+#         if bisiesto(i):
+#             bis = 366
+#             print(bis)
+#             if i == residuo[-1]:
+#                 das =
+#                 print('final', i)
+#             else:
+#                 print('hay aun', i)
+#         else:
+#             bis = 365
+#             print(bis)
+#             if i == residuo[-1]:
+#                 print('final', i)
+#             else:
+#                 print('hay aun', i)
 
-mes2 = {'01': '31', '02': '28', '03': '31', '04': '30', '05': '31', '06': '30',
-        '07': '31', '08': '31', '09': '30', '10': '31', '11': '30', '12': '31'}
+# a = int(may_fecha[2]) - int(men_fecha[2])
+# m = int(may_fecha[1]) - int(men_fecha[1])
+# d = int(may_fecha[0]) - int(men_fecha[0])
+#
+# print(f'{d} dias {m} meses {a} años')
+#
+# dias = int(men_an[men_fecha[1]]) - int(men_fecha[0])
+# dia = int(may_fecha[0]) - 0
 
-
-def bisiesto(anio):
-    if anio % 400 == 0 or (anio % 4 == 0 and anio % 100 != 0):
-        return 29
-    else:
-        return 28
-
-
-def febrero():
-    feb1 = bisiesto(int(fec_01[2]))
-    feb2 = bisiesto(int(fec_02[2]))
-
-    if feb1 == 29:
-        mes1['02'] = str(feb1)
-
-    if feb2 == 29:
-        mes2['02'] = str(feb2)
-
-
-febrero()
-print(mes1)
-print(mes2)
-
-for i in range(1, int(fec_02[1]) + 1):
-    print(i)
+# print(dias + dia)
