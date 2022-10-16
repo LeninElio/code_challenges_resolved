@@ -25,23 +25,37 @@
 
 def cuadrado(alto, ancho):
     for _ in range(alto):
-        print('*' * ancho)
+        print('*   ' * ancho)
+
+
+def triangulo(alto):
+    for j in range(1, alto + 1):
+        espacio = alto - j
+        print(' ' * espacio, '* ' * j)
 
 
 while True:
+    print("""
+    1.- Cuadrado
+    2.- Triangulo
+    3.- Salir
+    """)
     i = int(input('Ingrese un valor: '))
 
     if i == 1:
-        cuadrado(5, 18)
+        print('-' * 45)
+        print('Has elegido Cuadrado')
+        altura = int(input('Ingresa la altura: '))
+        anchura = int(input('Ingresa la anchura: '))
+        cuadrado(altura, anchura)
+        print('-' * 45)
         break
     elif i == 2:
-        pass
-    elif i == 0:
+        print('-' * 45)
+        print('Has elegido Triangulo')
+        altura = int(input('Ingresa el alto del Triangulo: '))
+        triangulo(altura)
+        print('-' * 45)
         break
-
-
-
-
-
-
-
+    elif i == 3:
+        break
