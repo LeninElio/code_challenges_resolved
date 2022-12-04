@@ -41,4 +41,3 @@ for i in range(1, n + 1):
     espacio = n - i
     print(' '*espacio, '*' * i, '*' * i)
 
-
