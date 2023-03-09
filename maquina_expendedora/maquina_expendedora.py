@@ -26,34 +26,48 @@
  */
 """
 
-productos = {
-    1: ["Agua", 50],
-    2: ["Coca-Cola", 100],
-    4: ["Cerveza", 155],
-    5: ["Pizza", 200],
-    10: ["Donut", 75]
-}
 
-# for i, j in productos.items():
-#     print(f'Presione: {i} -> {j[0]}, S/.{j[1]}')
-
-
-def moneda(valor):
-    monedas = {
-        'cinco': 5,
-        'diez': 10,
-        'cincuenta': 50,
-        'cien': 100,
-        'doscientos': 200
+def maquina_expendedora(monedas, seleccion):
+    productos = {
+        1: ["Agua", 50],
+        2: ["Coca-Cola", 100],
+        3: ["Cerveza", 155],
+        4: ["Pizza", 200],
+        5: ["Donut", 75]
     }
-    estado = 0
-    for x, y in monedas.items():
-        if x == valor:
-            estado = y
-            break
-        else:
-            estado = 0
 
-    return estado
+    monedas_soportadas = [5, 10, 50, 100, 200]
+    total = sum(monedas)
+
+    # Verificar si las monedas son soportadas
+    for moneda in monedas:
+        if moneda not in monedas_soportadas:
+            return "Moneda no soportada", monedas
+
+    # Verificar si el producto existe
+    if seleccion not in productos:
+        return "Producto no existe", monedas
+
+    # Verificar si el dinero es suficiente
+    producto = productos[seleccion]
+    if total < producto[1]:
+        return "Dinero insuficiente", monedas
+
+    # Calcular cambio
+    cambio = total - producto[1]
+    cambio_monedas = []
+
+    for m in sorted(monedas_soportadas, reverse=True):
+        while cambio >= m:
+            cambio -= m
+            cambio_monedas.append(m)
+
+    return producto[0], cambio_monedas
 
 
+# Ejemplo de uso
+print(maquina_expendedora([200], 1))  # ('Coca-Cola', 100)
+print(maquina_expendedora([50], 2))  # ('Papas', 0)
+print(maquina_expendedora([10], 3))  # ('Dinero insuficiente', 10)
+print(maquina_expendedora([80], 3))  # ('Moneda no soportada', 80)
+print(maquina_expendedora([100], 3))  # ('Chocolate', 25)

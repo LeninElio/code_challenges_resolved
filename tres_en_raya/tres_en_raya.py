@@ -25,42 +25,56 @@
 """
 
 
-lista = [5, 1, 2, 3, 4, 6, 'x']
-# lista.sort()
+def analizar_tres_en_raya(tablero):
+    # Comprobar si hay un ganador en las filas
+    for i in range(3):
+        if tablero[i][0] == tablero[i][1] == tablero[i][2]:
+            if tablero[i][0] == "X":
+                return "Ganador X"
+            elif tablero[i][0] == "O":
+                return "Ganador O"
 
-for i in lista:
-    if i == lista[-1]:
-        print(i, end='')
-    else:
-        print(i, end='-')
+    # Comprobar si hay un ganador en las columnas
+    for i in range(3):
+        if tablero[0][i] == tablero[1][i] == tablero[2][i]:
+            if tablero[0][i] == "X":
+                return "Ganador X"
+            elif tablero[0][i] == "O":
+                return "Ganador O"
 
-print()
+    # Comprobar si hay un ganador en las diagonales
+    if tablero[0][0] == tablero[1][1] == tablero[2][2]:
+        if tablero[0][0] == "X":
+            return "Ganador X"
+        elif tablero[0][0] == "O":
+            return "Ganador O"
 
-var = [i == 'x' for i in lista]
-print(var)
+    if tablero[0][2] == tablero[1][1] == tablero[2][0]:
+        if tablero[0][2] == "X":
+            return "Ganador X"
+        elif tablero[0][2] == "O":
+            return "Ganador O"
 
-# for i in range(len(lista)):
-#     if lista[i] == lista[-1]:
-#         print(lista[i], end='')
-#     else:
-#         print(lista[i], end='-')
-#
-# print()
+    # Si no hay ganadores, comprobar si hay un empate
+    empate = True
+    for i in range(3):
+        for j in range(3):
+            if tablero[i][j] == "":
+                empate = False
 
-for j in lista:
-    print(j, sep='+')
-#
-# for i in lista:
-#     for j in i:
-#         print(i, j)
+    if empate:
+        return "Empate"
 
-# var = [i for m in lista for i in m]
-# print(var)
+    # Si no hay ganadores ni empate, la proporción no es correcta
+    return "Nulo"
 
 
-# for i in range(len(lista)):
-#     print('[', end='')
-#     for j in range(len(lista[i])):
-#         print('{:>3s}'.format(str(lista[i][j])), end='')
-#     print(']')
-#
+datos = [
+    ["X", "O", "X"],
+    ["O", "O", "X"],
+    ["0", "X", "X"]
+]
+
+resultado = analizar_tres_en_raya(datos)
+
+print(resultado)

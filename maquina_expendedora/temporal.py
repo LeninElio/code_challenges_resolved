@@ -24,20 +24,31 @@
 #     print(cadena[0:i])
 
 # print(cadena[0:2])
-n = 15
+# n = 15
+#
+# for i in range(1, n + 1):
+#     print('*' * i)
+#
+# for i in range(1, n + 1):
+#     espacio = n - i
+#     print(' '*espacio, '*' * i)
+#
+# for i in range(1, n + 1):
+#     espacio = n - i
+#     print(' '*espacio, '* ' * i)
+#
+# for i in range(1, n + 1):
+#     espacio = n - i
+#     print(' '*espacio, '*' * i, '*' * i)
 
-for i in range(1, n + 1):
-    print('*' * i)
+productos = {
+    1: ["Agua", 50],
+    2: ["Coca-Cola", 100],
+    4: ["Cerveza", 155],
+    5: ["Pizza", 200],
+    10: ["Donut", 75]
+}
 
-for i in range(1, n + 1):
-    espacio = n - i
-    print(' '*espacio, '*' * i)
+producto_id = productos[1]
 
-for i in range(1, n + 1):
-    espacio = n - i
-    print(' '*espacio, '* ' * i)
-
-for i in range(1, n + 1):
-    espacio = n - i
-    print(' '*espacio, '*' * i, '*' * i)
-
+print(producto_id)

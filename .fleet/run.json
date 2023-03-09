@@ -3,8 +3,8 @@
       {
         "type": "python",
         "name": "main-configurations",
-        "pythonInterpreterPath": "$USER_HOME$/AppData/Local/Programs/Python/Python310/",
-        "arguments": ["main.py"],
+//        "pythonInterpreterPath": "$USER_HOME$/AppData/Local/Programs/Python/Python310",
+        "arguments": [],
       },
     ]
 }
