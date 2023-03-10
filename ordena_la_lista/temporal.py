@@ -41,14 +41,7 @@
 #     espacio = n - i
 #     print(' '*espacio, '*' * i, '*' * i)
 
-productos = {
-    1: ["Agua", 50],
-    2: ["Coca-Cola", 100],
-    4: ["Cerveza", 155],
-    5: ["Pizza", 200],
-    10: ["Donut", 75]
-}
+lista = [2, 1, 5, 8, 7, 6]
 
-producto_id = productos[1]
 
-print(producto_id)
+print(lista)
