@@ -15,7 +15,7 @@ lista = [year for year in range(y, y + 130) if (year % 4 == 0 and year % 100 != 
 print(lista)
 print(len(lista))
 
-# Nota (Lenin Elio - 13/03/2023 16:23), otra manera, este es mas legible
+# Nota (Lenin Elio - 13/03/2023 16:23), otra manera, este es más legible
 y = int(input('Ingrese un año de inicio: '))
 lista = [year for year in range(y, y + 130) if an_bisiesto(year)][:30]
 print(lista)
