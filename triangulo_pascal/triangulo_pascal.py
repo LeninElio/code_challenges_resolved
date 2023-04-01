@@ -27,7 +27,7 @@
 #     espacio = (j - i) * ' '
 #     print(espacio, (i * f'{i} '), espacio)
 
-j = 9
+j = int(input('Ingrese el tamaño del triangulo: '))
 # listas = []
 # for i in range(1, j):
 #     resultado = [i for _ in range(1, i + 1)]
